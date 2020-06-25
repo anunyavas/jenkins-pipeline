@@ -37,11 +37,8 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>2.4.0</version>
                 <configuration>
-                    <from>
-                        <image>tomcat:8-jre8-alpine</image>
-                    </from>
                     <to>
-                        <image>84.201.176.42:8092/appimage:latest</image>
+                        <image>84.201.176.42:8082/appimage:latest</image>
                         <auth>
                             <username>admin</username>
                             <password>b23efb22-c4fb-4a83-b704-97040f4927b6</password>
@@ -52,6 +49,7 @@
                             <port>8080</port>
                         </ports>
                     </container>
+                    <allowInsecureRegistries>true</allowInsecureRegistries>
                 </configuration>
             </plugin>
         </plugins>
