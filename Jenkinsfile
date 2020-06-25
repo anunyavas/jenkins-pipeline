@@ -19,14 +19,10 @@ pipeline {
 
 
 
-    stage('Run docker on devbe-srv01') {
+    stage('deploy image') {
+      agent any
       steps {
-        sh 'ssh-keyscan -H devbe-srv01 >> ~/.ssh/known_hosts'
-        sh '''ssh jenkins@devbe-srv01 << EOF
-	sudo docker pull devcvs-srv01:5000/shop2-backend/gateway-api:2-staging
-	cd /etc/shop/docker
-	sudo docker-compose up -d
-EOF'''
+        sh 'docker run -d -p 8080:8080 84.201.176.42:8082/appimage:latest'
       }
     }
   }
